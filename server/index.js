@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 5000;
 
+require('dotenv').config()
+
 const {prepareJson} = require('./data')
 
 app.get('/api', async (req, res) => {

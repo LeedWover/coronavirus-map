@@ -11,8 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.0"
+    "geocoder": "^0.2.3",
+    "node-fetch": "^2.6.0",
+    "node-geocoder": "^3.27.0",
+    "react-geocode": "^0.2.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
