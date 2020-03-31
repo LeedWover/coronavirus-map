@@ -1,5 +1,7 @@
 const countries = require('./model');
 
+const {preparedJson} = require('../data');
+
 const dummyData = [
   {
     date: "2020-3-30",
@@ -36,8 +38,10 @@ async function removeData() {
 }
 
 async function updateData() {
-  removeData().then(() => {
-    dummyData.map(async obj => {
+  removeData().then(async() => {
+    const casesArray = await preparedJson();
+    console.log(casesArray)
+    casesArray.map(async obj => {
       const newData = await new countries(obj);
       console.log(newData)
       newData.save().catch(err =>console.log(err))

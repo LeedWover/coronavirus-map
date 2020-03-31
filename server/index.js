@@ -7,7 +7,6 @@ var mongoose = require('mongoose');
 const db = require('./db/connect')
 const {updateData, loadData} = require('./db/controller')
 
-const {preparedJson} = require('./data');
 
 /* (async function setData() {
   setInterval(async function(){
@@ -16,14 +15,12 @@ const {preparedJson} = require('./data');
   }, 1000);
 })() */
 
-app.get('/api', async (req, res) => {
-  /* const data = await prepareJson();
-  res.json(data) */
+app.get('/api/update', async (req, res) => {
   const data = await updateData()
-  res.send(data)
+  res.send('Updated')
 })
 
-app.get('/api/load', async (req, res) => {
+app.get('/api/cases', async (req, res) => {
   /* const data = await prepareJson();
   res.json(data) */
   const data = await loadData()

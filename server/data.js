@@ -14,12 +14,12 @@ async function preparedJson() {
     const raw = await fetchData(API_URL);
     let keys = Object.keys(raw);
     let array = [];
-    for (let i = 1; i < 2; i++) {
+    for (let i = 1; i < keys.length; i++) {
       const key = keys[i];
-      //const geoCode = await geoCoder(key);
+      const geoCode = await geoCoder(key);
       const lastItem = raw[key].pop();
       lastItem.name = key;
-      //lastItem.geo = geoCode
+      lastItem.geo = geoCode
       array.push(lastItem);
     }
     return array;
