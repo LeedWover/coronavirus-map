@@ -17,11 +17,11 @@ function App() {
   }, []);
   console.log(cases);
   return (
-    <div className="App row">
+    <div className="App row app_container">
       <div style={{padding: '0'}} className="col-3">
         <InfoContainer cases={cases} />
       </div>
-      <div style={{padding: '0'}} className="col-9">
+      <div id="map_container" style={{padding: '0'}} className="col-9">
         <Map
           cases={cases}
           isMarkerShown

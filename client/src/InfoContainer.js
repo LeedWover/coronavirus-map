@@ -4,8 +4,8 @@ import InfoItem from './InfoItem';
 
 function InfoContainer({ cases }) {
   return (
-    <div style={{ maxHeight: '100vh', overflowX: 'hidden' }}>
-      <ul className="list-group">
+    <div className="info_container" style={{ maxHeight: '100vh', overflowX: 'hidden' }}>
+      <ul className="list-group info_list">
         {cases
           ? cases.map(item => (
               <InfoItem key={item._id} name={item.name} confirmed={item.confirmed} deaths={item.deaths} recovered={item.recovered} />

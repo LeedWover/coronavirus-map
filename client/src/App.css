@@ -30,8 +30,26 @@
   color: white;
 }
 
+.app_container {
+  max-width: 100vw;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+.info_container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.info_list {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  padding-right: 17px; 
+  box-sizing: content-box;
 }
 
 @keyframes App-logo-spin {
