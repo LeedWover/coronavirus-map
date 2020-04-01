@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import InfoItem from './InfoItem';
+import InfoItem from './Country';
 
 function InfoContainer({ cases }) {
   return (

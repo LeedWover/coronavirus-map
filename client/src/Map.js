@@ -8,11 +8,7 @@ import {
 } from 'react-google-maps';
 
 const MyMapComponent = withScriptjs(
-  withGoogleMap(({isMarkerShown, cases}) => {
-    const [details, setDetails] = useState(null)
-    const showDetails = (item) => {
-      setDetails(item)
-    }
+  withGoogleMap(({isMarkerShown, details, cases}) => {
     return (
       
       <div style={{maxHeight: '100vh', overflowX: 'hidden'}}>
@@ -24,8 +20,8 @@ const MyMapComponent = withScriptjs(
             lat: item.geo.lat,
             lng: item.geo.lng
           }}
-          radius={item.confirmed >= 7000 ? item.confirmed * 2 : item.confirmed * 27}
-          onClick={() => showDetails(item)}
+          radius={item.confirmed >= 5000 ? item.confirmed * 3 : item.confirmed * 45}
+          onClick={() => details(item)}
         />
         )) : null}
         
