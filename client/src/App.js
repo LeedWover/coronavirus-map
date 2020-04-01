@@ -2,27 +2,37 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import Map from './Map';
-import InfoContainer from './InfoContainer';
+import InfoContainer from './Countries';
+import Details from './Details';
 
 function App() {
   const [cases, setCases] = useState([]);
-
+  const [details, setDetails] = useState([]);
+  const [total, setTotal] = useState(0);
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch('http://localhost:5000/api/cases');
-      const data = await res.json();
-      setCases(data);
-    };
     fetchData();
   }, []);
-  console.log(cases);
+
+  const fetchData = async () => {
+    const res = await fetch('http://localhost:5000/api/cases');
+    const data = await res.json();
+    setCases(data);
+    const totalNum = data.reduce((total, number) => total += number.confirmed ,0)
+    setTotal(totalNum)
+  };
+
+  const getDetails = (details) => {
+    setDetails(details)
+  }
+  console.log(total)
   return (
     <div className="App row app_container">
-      <div style={{padding: '0'}} className="col-3">
+      <div style={{padding: '0'}} className="col-2">
         <InfoContainer cases={cases} />
       </div>
-      <div id="map_container" style={{padding: '0'}} className="col-9">
+      <div id="map_container" style={{padding: '0'}} className="col-8">
         <Map
+          details={getDetails}
           cases={cases}
           isMarkerShown
           googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
@@ -30,6 +40,9 @@ function App() {
           containerElement={<div style={{ height: `100vh` }} />}
           mapElement={<div style={{ height: `100%` }} />}
         />
+      </div>
+      <div className="col-2">
+        <Details total={total} details={details} />
       </div>
     </div>
   );
