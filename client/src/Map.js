@@ -8,7 +8,7 @@ import {
 } from 'react-google-maps';
 
 const MyMapComponent = withScriptjs(
-  withGoogleMap(({isMarkerShown, details, cases}) => {
+  withGoogleMap(({details, cases}) => {
     return (
       
       <div style={{maxHeight: '100vh', overflowX: 'hidden'}}>
@@ -25,7 +25,6 @@ const MyMapComponent = withScriptjs(
         />
         )) : null}
         
-        {isMarkerShown && <Marker position={{ lat: 53.0, lng: 9.0 }} />}
       </GoogleMap>
       <div style={{background: '#fff', opacity: '0.6', position: 'absolute', top: '0'}}>
           {cases.length ? (

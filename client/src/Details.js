@@ -25,7 +25,11 @@ function Details({ total, details, deaths }) {
           <h4 className="text-success">{details.recovered}</h4>
           </div>
         </div>
-      ) : null}
+      ) : (<div className="card m-1">
+      <div className="card-body">
+        <h5 className="text-muted">Click to a country to see details...</h5>
+      </div>
+    </div>)}
     </div>
   );
 }
