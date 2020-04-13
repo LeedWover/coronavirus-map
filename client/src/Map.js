@@ -27,7 +27,7 @@ const MyMapComponent = withScriptjs(
         
         {isMarkerShown && <Marker position={{ lat: 53.0, lng: 9.0 }} />}
       </GoogleMap>
-      <div style={{background: '#fff', opacity: '0.4', position: 'absolute', top: '0'}}>
+      <div style={{background: '#fff', opacity: '0.6', position: 'absolute', top: '0'}}>
           {cases.length ? (
             <>
               <span style={{padding: '3px 5px'}}>Last update: {cases[0].date}</span>

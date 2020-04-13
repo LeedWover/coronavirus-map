@@ -5,19 +5,25 @@ import InfoItem from './Country';
 function Details({ total, details, deaths }) {
   return (
     <div>
-      <div>Total:</div>
-      <div>{total}</div>
-      <div>
-        <div>Deaths:</div>
-        <div>{deaths}</div>
+      <div className="card m-1">
+        <div className="card-body">
+          <h2 className="card-title">Total:</h2>
+          <h3 className="card-subtitle text-muted">{total.toLocaleString()}</h3>
+          <h2 className="card-title">Deaths:</h2>
+          <h3 className="card-subtitle text-danger">{deaths.toLocaleString()}</h3>
+        </div>
       </div>
-      {details.length ? (
-        <div>
-          <div>Country:</div>
-          <div>{details.name}</div>
-          <div>{details.confirmed}</div>
-          <div>{details.deaths}</div>
-          <div>{details.recovered}</div>
+      {details ? (
+        <div className="card m-1">
+          <div className="card-body">
+          <h2>{details.name}</h2>
+          <h3 className="card-title">Total:</h3>
+          <h4 className="text-muted">{details.confirmed}</h4>
+          <h3 className="card-title">Deaths:</h3>
+          <h4 className="text-danger">{details.deaths}</h4>
+          <h3 className="card-title">Recovered:</h3>
+          <h4 className="text-success">{details.recovered}</h4>
+          </div>
         </div>
       ) : null}
     </div>

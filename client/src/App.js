@@ -7,7 +7,7 @@ import Details from './Details';
 
 function App() {
   const [cases, setCases] = useState([]);
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState(null);
   const [total, setTotal] = useState(0);
   const [deaths, setDeaths] = useState(0);
   useEffect(() => {
@@ -25,6 +25,7 @@ function App() {
   };
   
   const getDetails = (details) => {
+    console.log(details)
     setDetails(details)
   }
 
