@@ -20,23 +20,13 @@ const MyMapComponent = withScriptjs(
             lat: item.geo.lat,
             lng: item.geo.lng
           }}
-          radius={item.confirmed >= 5000 ? item.confirmed * 3 : item.confirmed * 45}
+          radius={Math.log(item.confirmed) * 10000}
           onClick={() => details(item)}
         />
         )) : null}
         
         {isMarkerShown && <Marker position={{ lat: 53.0, lng: 9.0 }} />}
       </GoogleMap>
-      <div style={{background: '#fff', opacity: '0.4', position: 'absolute', top: '0', left: '50%'}}>
-          {details ? (
-            <>
-              <span style={{fontSize: '5em'}}>{details.name}</span><br/>
-              <span style={{fontSize: '5em'}}>{details.confirmed}</span><br/>
-            </>
-          
-          ) : null
-        }
-      </div>
       </div>
     );
   })
