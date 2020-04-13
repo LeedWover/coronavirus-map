@@ -51,12 +51,3 @@
   padding-right: 17px; 
   box-sizing: content-box;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 
 import InfoItem from './Country';
 
-function Details({ total, details }) {
+function Details({ total, details, deaths }) {
   return (
     <div>
       <div>Total:</div>
       <div>{total}</div>
       <div>
         <div>Deaths:</div>
-        
+        <div>{deaths}</div>
       </div>
-      {details ? (
+      {details.length ? (
         <div>
           <div>Country:</div>
           <div>{details.name}</div>

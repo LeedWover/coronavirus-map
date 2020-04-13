@@ -9,6 +9,7 @@ function App() {
   const [cases, setCases] = useState([]);
   const [details, setDetails] = useState([]);
   const [total, setTotal] = useState(0);
+  const [deaths, setDeaths] = useState(0);
   useEffect(() => {
     fetchData();
   }, []);
@@ -18,13 +19,15 @@ function App() {
     const data = await res.json();
     setCases(data);
     const totalNum = data.reduce((total, number) => total += number.confirmed ,0)
+    const totalDeaths = data.reduce((total, number) => total += number.deaths ,0)
     setTotal(totalNum)
+    setDeaths(totalDeaths)
   };
-
+  
   const getDetails = (details) => {
     setDetails(details)
   }
-  console.log(total)
+
   return (
     <div className="App row app_container">
       <div style={{padding: '0'}} className="col-2">
@@ -42,7 +45,7 @@ function App() {
         />
       </div>
       <div className="col-2">
-        <Details total={total} details={details} />
+        <Details total={total} deaths={deaths} details={details} />
       </div>
     </div>
   );
