@@ -40,7 +40,6 @@ async function removeData() {
 async function updateData() {
   removeData().then(async() => {
     const casesArray = await preparedJson();
-    console.log(casesArray)
     casesArray.map(async obj => {
       const newData = await new countries(obj);
       console.log(newData)
